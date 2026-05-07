@@ -1,0 +1,39 @@
+group_id: group_t_nongaussian_covariate
+title: Non-Gaussian covariate Stein-vs-Mahalanobis experiment
+description: Test whether an oracle mixture Stein score differs from Gaussian/Mahalanobis trimming under a genuinely non-Gaussian clean covariate law.
+figure_kind: nongaussian_covariate
+theory_refs:
+  - prop:stein-witness-boundedness
+  - thm:robust-coverage-ksd-trimmed
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 1200
+  calibration_size: 400
+  clean_reference_size: 240
+  threshold_policy: fixed_grid
+  mc_reps: 100
+  random_seed: 2026042104
+  dgp_family: bimodal_covariate
+  contamination_family: partial_separation
+  predictor_type: linear
+  clean_test_size: 4000
+  mixture_test_size: 4000
+  structure_sample_size: 3000
+  threshold_quantiles: [0.70, 0.80, 0.90, 0.95]
+  methods: [stein_trimmed, score_norm_trim, mahalanobis_trim, gmm_mahalanobis_trim, ordinary_split_conformal, clean_oracle_trim, random_trim, residual_trim]
+  compute_population_metrics: true
+  include_mixture_eval: true
+  score_model_mode: oracle_bimodal_mixture
+  bandwidth_scale: 1.0
+  gmm_components: 2
+experiments:
+  - config_id: nongaussian_bimodal_overlap
+    dirty_loc: 1.0
+    dirty_scale: 1.0
+  - config_id: nongaussian_bimodal_moderate
+    dirty_loc: 2.5
+    dirty_scale: 0.9
+  - config_id: nongaussian_bimodal_separated
+    dirty_loc: 4.0
+    dirty_scale: 0.8

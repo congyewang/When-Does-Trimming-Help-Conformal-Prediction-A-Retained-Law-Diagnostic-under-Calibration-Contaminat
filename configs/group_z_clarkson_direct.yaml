@@ -1,0 +1,17 @@
+# Direct synthetic classification comparison with Clarkson et al. (2024) CRCP.
+# This mirrors the repository's logistic/hypercube synthetic classification
+# setup, with clean test labels and noisy train/calibration labels.
+seed_base: 123
+n_reps: 25
+alpha: 0.10
+indexing: repo
+dataset: [logistic, hypercube]
+model: [log_reg, rf, mlp, gbt]
+eps: [0.0, 0.05, 0.10, 0.20, 0.30, 0.40]
+n_train: 10000
+n_cal: 10000
+n_test: 10000
+p: 10
+K: 5
+trim_quantiles: [0.70, 0.80, 0.90, 0.95]
+include_oracle: true

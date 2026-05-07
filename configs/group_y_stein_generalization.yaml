@@ -1,0 +1,61 @@
+group_id: group_y_stein_generalization
+title: Data-driven Stein recipe on non-Gaussian clean covariate geometries
+description: KDE-based pointwise Stein trimming is compared with score-norm, global Mahalanobis, fitted-mixture Mahalanobis, vanilla split conformal, clean-oracle, random, and residual trimming on skewed-mixture, banana, and two-moons clean covariate laws.
+figure_kind: multi_metric_baseline
+theory_refs:
+  - thm:robust-coverage-ksd-trimmed
+  - prop:stein-witness-boundedness
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 1600
+  calibration_size: 500
+  clean_reference_size: 400
+  threshold_policy: fixed_grid
+  mc_reps: 100
+  random_seed: 2026042501
+  dgp_family: banana_covariate
+  contamination_family: localized_covariate
+  predictor_type: linear
+  clean_test_size: 4000
+  mixture_test_size: 4000
+  structure_sample_size: 3500
+  threshold_quantiles: [0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95]
+  methods: [stein_trimmed, score_norm_trim, mahalanobis_trim, gmm_mahalanobis_trim, ordinary_split_conformal, clean_oracle_trim, random_trim, residual_trim]
+  compute_population_metrics: false
+  include_mixture_eval: true
+  score_model_mode: kde_score
+  bandwidth_scale: 1.0
+  score_bandwidth_scale: 1.0
+  gmm_components: 3
+  gmm_max_iter: 80
+  gmm_min_covar: 0.0005
+  dirty_y_shift: 2.0
+  notes: The Stein score uses only clean training/reference samples through a KDE score estimator; no Gaussian or mixture oracle score is supplied. The primary diagnostic tables are method-level, same-quantile, same-retention, and valid-shortest rather than coverage-only highlights.
+experiments:
+  - config_id: skewed_mixture_low_density
+    title: Skewed mixture clean law with dirty mass in a low-density shoulder
+    dgp_family: skewed_mixture_covariate
+    contamination_family: localized_covariate
+    dirty_loc_x: -1.0
+    dirty_loc_y: 0.4
+    dirty_scale: 0.10
+    score_bandwidth_scale: 0.7
+    gmm_components: 3
+  - config_id: banana_bridge
+    title: Banana-shaped clean law with dirty mass on an off-manifold bridge
+    dgp_family: banana_covariate
+    contamination_family: banana_bridge
+    dirty_loc_x: 0.0
+    dirty_loc_y: 1.15
+    dirty_scale: 0.16
+    gmm_components: 2
+  - config_id: two_moons_gap
+    title: Two-moons clean law with dirty mass in a low-density off-manifold gap
+    dgp_family: two_moons_covariate
+    contamination_family: two_moons_gap
+    dirty_loc_x: 0.6
+    dirty_loc_y: 0.3
+    dirty_scale: 0.08
+    score_bandwidth_scale: 0.6
+    gmm_components: 2

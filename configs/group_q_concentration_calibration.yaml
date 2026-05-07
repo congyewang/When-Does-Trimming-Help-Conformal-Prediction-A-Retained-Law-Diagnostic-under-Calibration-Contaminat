@@ -1,0 +1,262 @@
+group_id: group_q_concentration_calibration
+title: Concentration calibration study
+description: Estimate retained-set concentration violation rates across calibration sizes and contamination modes.
+figure_kind: concentration_calibration
+theory_refs:
+  - lem:fixed-threshold
+defaults:
+  alpha: 0.1
+  train_size: 900
+  clean_reference_size: 160
+  threshold_policy: fixed_grid
+  mc_reps: 100
+  random_seed: 2026041902
+  dgp_family: tradeoff
+  contamination_family: separated_covariate
+  predictor_type: linear
+  clean_test_size: 1000
+  mixture_test_size: 1000
+  structure_sample_size: 1200
+  threshold_quantiles: [0.70, 0.85, 0.95]
+  methods: [stein_trimmed]
+experiments:
+  - config_id: concentration_covariate_eps005_m050
+    title: Covariate contamination eps=0.05 m=50
+    contamination_family: separated_covariate
+    epsilon: 0.05
+    calibration_size: 50
+  - config_id: concentration_covariate_eps005_m100
+    title: Covariate contamination eps=0.05 m=100
+    contamination_family: separated_covariate
+    epsilon: 0.05
+    calibration_size: 100
+  - config_id: concentration_covariate_eps005_m200
+    title: Covariate contamination eps=0.05 m=200
+    contamination_family: separated_covariate
+    epsilon: 0.05
+    calibration_size: 200
+  - config_id: concentration_covariate_eps005_m400
+    title: Covariate contamination eps=0.05 m=400
+    contamination_family: separated_covariate
+    epsilon: 0.05
+    calibration_size: 400
+  - config_id: concentration_covariate_eps005_m800
+    title: Covariate contamination eps=0.05 m=800
+    contamination_family: separated_covariate
+    epsilon: 0.05
+    calibration_size: 800
+  - config_id: concentration_covariate_eps005_m1600
+    title: Covariate contamination eps=0.05 m=1600
+    contamination_family: separated_covariate
+    epsilon: 0.05
+    calibration_size: 1600
+  - config_id: concentration_covariate_eps010_m050
+    title: Covariate contamination eps=0.10 m=50
+    contamination_family: separated_covariate
+    epsilon: 0.10
+    calibration_size: 50
+  - config_id: concentration_covariate_eps010_m100
+    title: Covariate contamination eps=0.10 m=100
+    contamination_family: separated_covariate
+    epsilon: 0.10
+    calibration_size: 100
+  - config_id: concentration_covariate_eps010_m200
+    title: Covariate contamination eps=0.10 m=200
+    contamination_family: separated_covariate
+    epsilon: 0.10
+    calibration_size: 200
+  - config_id: concentration_covariate_eps010_m400
+    title: Covariate contamination eps=0.10 m=400
+    contamination_family: separated_covariate
+    epsilon: 0.10
+    calibration_size: 400
+  - config_id: concentration_covariate_eps010_m800
+    title: Covariate contamination eps=0.10 m=800
+    contamination_family: separated_covariate
+    epsilon: 0.10
+    calibration_size: 800
+  - config_id: concentration_covariate_eps010_m1600
+    title: Covariate contamination eps=0.10 m=1600
+    contamination_family: separated_covariate
+    epsilon: 0.10
+    calibration_size: 1600
+  - config_id: concentration_covariate_eps020_m050
+    title: Covariate contamination eps=0.20 m=50
+    contamination_family: separated_covariate
+    epsilon: 0.20
+    calibration_size: 50
+  - config_id: concentration_covariate_eps020_m100
+    title: Covariate contamination eps=0.20 m=100
+    contamination_family: separated_covariate
+    epsilon: 0.20
+    calibration_size: 100
+  - config_id: concentration_covariate_eps020_m200
+    title: Covariate contamination eps=0.20 m=200
+    contamination_family: separated_covariate
+    epsilon: 0.20
+    calibration_size: 200
+  - config_id: concentration_covariate_eps020_m400
+    title: Covariate contamination eps=0.20 m=400
+    contamination_family: separated_covariate
+    epsilon: 0.20
+    calibration_size: 400
+  - config_id: concentration_covariate_eps020_m800
+    title: Covariate contamination eps=0.20 m=800
+    contamination_family: separated_covariate
+    epsilon: 0.20
+    calibration_size: 800
+  - config_id: concentration_covariate_eps020_m1600
+    title: Covariate contamination eps=0.20 m=1600
+    contamination_family: separated_covariate
+    epsilon: 0.20
+    calibration_size: 1600
+  - config_id: concentration_covariate_eps030_m050
+    title: Covariate contamination eps=0.30 m=50
+    contamination_family: separated_covariate
+    epsilon: 0.30
+    calibration_size: 50
+  - config_id: concentration_covariate_eps030_m100
+    title: Covariate contamination eps=0.30 m=100
+    contamination_family: separated_covariate
+    epsilon: 0.30
+    calibration_size: 100
+  - config_id: concentration_covariate_eps030_m200
+    title: Covariate contamination eps=0.30 m=200
+    contamination_family: separated_covariate
+    epsilon: 0.30
+    calibration_size: 200
+  - config_id: concentration_covariate_eps030_m400
+    title: Covariate contamination eps=0.30 m=400
+    contamination_family: separated_covariate
+    epsilon: 0.30
+    calibration_size: 400
+  - config_id: concentration_covariate_eps030_m800
+    title: Covariate contamination eps=0.30 m=800
+    contamination_family: separated_covariate
+    epsilon: 0.30
+    calibration_size: 800
+  - config_id: concentration_covariate_eps030_m1600
+    title: Covariate contamination eps=0.30 m=1600
+    contamination_family: separated_covariate
+    epsilon: 0.30
+    calibration_size: 1600
+  - config_id: concentration_response_eps005_m050
+    title: Response contamination eps=0.05 m=50
+    contamination_family: response_contamination
+    epsilon: 0.05
+    calibration_size: 50
+  - config_id: concentration_response_eps005_m100
+    title: Response contamination eps=0.05 m=100
+    contamination_family: response_contamination
+    epsilon: 0.05
+    calibration_size: 100
+  - config_id: concentration_response_eps005_m200
+    title: Response contamination eps=0.05 m=200
+    contamination_family: response_contamination
+    epsilon: 0.05
+    calibration_size: 200
+  - config_id: concentration_response_eps005_m400
+    title: Response contamination eps=0.05 m=400
+    contamination_family: response_contamination
+    epsilon: 0.05
+    calibration_size: 400
+  - config_id: concentration_response_eps005_m800
+    title: Response contamination eps=0.05 m=800
+    contamination_family: response_contamination
+    epsilon: 0.05
+    calibration_size: 800
+  - config_id: concentration_response_eps005_m1600
+    title: Response contamination eps=0.05 m=1600
+    contamination_family: response_contamination
+    epsilon: 0.05
+    calibration_size: 1600
+  - config_id: concentration_response_eps010_m050
+    title: Response contamination eps=0.10 m=50
+    contamination_family: response_contamination
+    epsilon: 0.10
+    calibration_size: 50
+  - config_id: concentration_response_eps010_m100
+    title: Response contamination eps=0.10 m=100
+    contamination_family: response_contamination
+    epsilon: 0.10
+    calibration_size: 100
+  - config_id: concentration_response_eps010_m200
+    title: Response contamination eps=0.10 m=200
+    contamination_family: response_contamination
+    epsilon: 0.10
+    calibration_size: 200
+  - config_id: concentration_response_eps010_m400
+    title: Response contamination eps=0.10 m=400
+    contamination_family: response_contamination
+    epsilon: 0.10
+    calibration_size: 400
+  - config_id: concentration_response_eps010_m800
+    title: Response contamination eps=0.10 m=800
+    contamination_family: response_contamination
+    epsilon: 0.10
+    calibration_size: 800
+  - config_id: concentration_response_eps010_m1600
+    title: Response contamination eps=0.10 m=1600
+    contamination_family: response_contamination
+    epsilon: 0.10
+    calibration_size: 1600
+  - config_id: concentration_response_eps020_m050
+    title: Response contamination eps=0.20 m=50
+    contamination_family: response_contamination
+    epsilon: 0.20
+    calibration_size: 50
+  - config_id: concentration_response_eps020_m100
+    title: Response contamination eps=0.20 m=100
+    contamination_family: response_contamination
+    epsilon: 0.20
+    calibration_size: 100
+  - config_id: concentration_response_eps020_m200
+    title: Response contamination eps=0.20 m=200
+    contamination_family: response_contamination
+    epsilon: 0.20
+    calibration_size: 200
+  - config_id: concentration_response_eps020_m400
+    title: Response contamination eps=0.20 m=400
+    contamination_family: response_contamination
+    epsilon: 0.20
+    calibration_size: 400
+  - config_id: concentration_response_eps020_m800
+    title: Response contamination eps=0.20 m=800
+    contamination_family: response_contamination
+    epsilon: 0.20
+    calibration_size: 800
+  - config_id: concentration_response_eps020_m1600
+    title: Response contamination eps=0.20 m=1600
+    contamination_family: response_contamination
+    epsilon: 0.20
+    calibration_size: 1600
+  - config_id: concentration_response_eps030_m050
+    title: Response contamination eps=0.30 m=50
+    contamination_family: response_contamination
+    epsilon: 0.30
+    calibration_size: 50
+  - config_id: concentration_response_eps030_m100
+    title: Response contamination eps=0.30 m=100
+    contamination_family: response_contamination
+    epsilon: 0.30
+    calibration_size: 100
+  - config_id: concentration_response_eps030_m200
+    title: Response contamination eps=0.30 m=200
+    contamination_family: response_contamination
+    epsilon: 0.30
+    calibration_size: 200
+  - config_id: concentration_response_eps030_m400
+    title: Response contamination eps=0.30 m=400
+    contamination_family: response_contamination
+    epsilon: 0.30
+    calibration_size: 400
+  - config_id: concentration_response_eps030_m800
+    title: Response contamination eps=0.30 m=800
+    contamination_family: response_contamination
+    epsilon: 0.30
+    calibration_size: 800
+  - config_id: concentration_response_eps030_m1600
+    title: Response contamination eps=0.30 m=1600
+    contamination_family: response_contamination
+    epsilon: 0.30
+    calibration_size: 1600

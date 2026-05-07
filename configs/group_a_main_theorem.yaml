@@ -1,0 +1,31 @@
+group_id: group_a_main_theorem
+title: Main theorem decomposition sweep
+description: Trade-off validation for the robust clean-test coverage theorem.
+figure_kind: threshold_sweep
+theory_refs:
+  - thm:robust-coverage-ksd-trimmed
+  - lem:fixed-threshold
+  - prop:delta-bias-covariance
+  - lem:delta-bias-tv
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 1200
+  calibration_size: 320
+  clean_reference_size: 192
+  threshold_policy: fixed_grid
+  mc_reps: 100
+  random_seed: 2026041601
+  dgp_family: tradeoff
+  contamination_family: separated_covariate
+  predictor_type: linear
+  clean_test_size: 2500
+  mixture_test_size: 2500
+  structure_sample_size: 1800
+  threshold_quantiles: [0.70, 0.80, 0.85, 0.90, 0.95, 0.975, 0.99]
+  methods: [stein_trimmed, split_conformal, clean_oracle]
+  include_mixture_eval: true
+experiments:
+  - config_id: tradeoff_main
+    title: Trade-off pilot reproduction
+    description: Reproduce and extend the pilot trade-off sweep.

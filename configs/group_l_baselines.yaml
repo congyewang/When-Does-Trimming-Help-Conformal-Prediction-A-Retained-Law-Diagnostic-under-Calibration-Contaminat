@@ -1,0 +1,36 @@
+group_id: group_l_baselines
+title: Baseline comparison suite
+description: Compare trimmed Stein calibration against standard baselines across benchmark scenarios.
+figure_kind: multi_metric_baseline
+theory_refs:
+  - thm:robust-coverage-ksd-trimmed
+  - thm:ideal-separation-fixed
+  - thm:no-separation-fixed
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 1000
+  calibration_size: 280
+  clean_reference_size: 160
+  threshold_policy: clean_reference_only
+  mc_reps: 100
+  random_seed: 2026041612
+  predictor_type: linear
+  clean_test_size: 1800
+  mixture_test_size: 1800
+  structure_sample_size: 1500
+  threshold_quantiles: [0.95]
+  methods: [stein_trimmed, ordinary_split_conformal, clarkson_contaminated_split, cqr_conformal, clean_oracle_trim, random_trim, residual_trim]
+experiments:
+  - config_id: baseline_tradeoff
+    dgp_family: tradeoff
+    contamination_family: separated_covariate
+    title: Baselines on trade-off DGP
+  - config_id: baseline_ideal
+    dgp_family: ideal_separation
+    contamination_family: ideal_covariate
+    title: Baselines on ideal separation
+  - config_id: baseline_no_sep
+    dgp_family: no_separation
+    contamination_family: no_separation
+    title: Baselines on no separation

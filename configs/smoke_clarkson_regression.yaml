@@ -1,0 +1,15 @@
+seed_base: 321
+n_reps: 2
+alpha: 0.10
+indexing: standard
+dirty_family: [high_leverage_response]
+epsilon: [0.20]
+n_train: 120
+n_cal: 120
+n_test: 300
+p: 3
+sigma: 1.0
+shift: 3.0
+residual_shift: 3.0
+residual_scale: 1.0
+trim_quantiles: [0.70, 0.90]

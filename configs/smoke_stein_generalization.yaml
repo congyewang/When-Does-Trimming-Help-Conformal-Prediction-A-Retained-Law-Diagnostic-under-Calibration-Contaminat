@@ -1,0 +1,36 @@
+group_id: smoke_stein_generalization
+title: Smoke data-driven Stein generalization
+description: Tiny non-Gaussian KDE-Stein smoke test.
+figure_kind: multi_metric_baseline
+theory_refs:
+  - thm:robust-coverage-ksd-trimmed
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 260
+  calibration_size: 100
+  clean_reference_size: 120
+  threshold_policy: fixed_grid
+  mc_reps: 3
+  random_seed: 2026042502
+  dgp_family: banana_covariate
+  contamination_family: banana_bridge
+  predictor_type: linear
+  clean_test_size: 500
+  mixture_test_size: 500
+  structure_sample_size: 500
+  threshold_quantiles: [0.50, 0.70, 0.90]
+  methods: [stein_trimmed, score_norm_trim, mahalanobis_trim, gmm_mahalanobis_trim, ordinary_split_conformal, clean_oracle_trim, random_trim, residual_trim]
+  compute_population_metrics: false
+  include_mixture_eval: true
+  score_model_mode: kde_score
+  bandwidth_scale: 1.0
+  score_bandwidth_scale: 1.0
+  gmm_components: 2
+  gmm_max_iter: 40
+  dirty_y_shift: 2.0
+experiments:
+  - config_id: smoke_banana_bridge
+    dirty_loc_x: 0.0
+    dirty_loc_y: 1.15
+    dirty_scale: 0.16

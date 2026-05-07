@@ -1,0 +1,44 @@
+group_id: smoke_regime_map
+title: Smoke regime map
+description: Tiny regime-map run for smoke testing.
+figure_kind: heatmap_regime
+theory_refs:
+  - thm:robust-coverage-ksd-trimmed
+defaults:
+  alpha: 0.1
+  train_size: 220
+  clean_reference_size: 48
+  threshold_policy: fixed_grid
+  mc_reps: 3
+  random_seed: 2026041803
+  dgp_family: tradeoff
+  contamination_family: partial_separation
+  predictor_type: linear
+  clean_test_size: 200
+  mixture_test_size: 200
+  structure_sample_size: 240
+  threshold_quantiles: [0.80, 0.95]
+  methods: [stein_trimmed, ordinary_split_conformal, clean_oracle_trim, random_trim]
+  include_mixture_eval: true
+  dirty_scale: 0.8
+experiments:
+  - config_id: smoke_regime_eps010_sep000
+    epsilon: 0.10
+    calibration_size: 80
+    dirty_loc: 0.0
+    separation_strength: 0.0
+  - config_id: smoke_regime_eps010_sep400
+    epsilon: 0.10
+    calibration_size: 80
+    dirty_loc: 4.0
+    separation_strength: 4.0
+  - config_id: smoke_regime_eps025_sep000
+    epsilon: 0.25
+    calibration_size: 80
+    dirty_loc: 0.0
+    separation_strength: 0.0
+  - config_id: smoke_regime_eps025_sep400
+    epsilon: 0.25
+    calibration_size: 80
+    dirty_loc: 4.0
+    separation_strength: 4.0

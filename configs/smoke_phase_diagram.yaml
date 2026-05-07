@@ -1,0 +1,49 @@
+group_id: smoke_phase_diagram
+title: Smoke phase diagram
+description: Tiny separation-phase run for smoke testing.
+figure_kind: phase_diagram
+theory_refs:
+  - thm:ideal-separation-fixed
+  - thm:no-separation-fixed
+defaults:
+  alpha: 0.1
+  train_size: 220
+  clean_reference_size: 48
+  threshold_policy: clean_reference_only
+  mc_reps: 3
+  random_seed: 2026041804
+  dgp_family: ideal_separation
+  contamination_family: partial_separation
+  predictor_type: linear
+  clean_test_size: 200
+  mixture_test_size: 200
+  structure_sample_size: 240
+  threshold_quantiles: [0.95]
+  methods: [stein_trimmed, ordinary_split_conformal, clean_oracle_trim, residual_trim]
+  reference_quantile: 0.95
+  dirty_scale: 0.8
+experiments:
+  - config_id: smoke_phase_eps010_sep000
+    epsilon: 0.10
+    calibration_size: 120
+    dirty_loc: 0.0
+    separation_strength: 0.0
+    phase_region: no_separation
+  - config_id: smoke_phase_eps010_sep200
+    epsilon: 0.10
+    calibration_size: 120
+    dirty_loc: 2.0
+    separation_strength: 2.0
+    phase_region: transition
+  - config_id: smoke_phase_eps025_sep000
+    epsilon: 0.25
+    calibration_size: 120
+    dirty_loc: 0.0
+    separation_strength: 0.0
+    phase_region: no_separation
+  - config_id: smoke_phase_eps025_sep800
+    epsilon: 0.25
+    calibration_size: 120
+    dirty_loc: 8.0
+    separation_strength: 8.0
+    phase_region: near_ideal

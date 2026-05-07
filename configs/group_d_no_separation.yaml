@@ -1,0 +1,35 @@
+group_id: group_d_no_separation
+title: No-separation finite-sample study
+description: Calibration-size sweep under no separation.
+figure_kind: calibration_size
+theory_refs:
+  - thm:no-separation-fixed
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 1000
+  clean_reference_size: 160
+  threshold_policy: clean_reference_only
+  mc_reps: 100
+  random_seed: 2026041604
+  dgp_family: no_separation
+  contamination_family: no_separation
+  predictor_type: linear
+  clean_test_size: 2200
+  mixture_test_size: 2200
+  structure_sample_size: 1600
+  threshold_quantiles: [0.99]
+  methods: [stein_trimmed, split_conformal]
+experiments:
+  - config_id: no_sep_m100
+    calibration_size: 100
+    title: No separation m=100
+  - config_id: no_sep_m200
+    calibration_size: 200
+    title: No separation m=200
+  - config_id: no_sep_m400
+    calibration_size: 400
+    title: No separation m=400
+  - config_id: no_sep_m800
+    calibration_size: 800
+    title: No separation m=800

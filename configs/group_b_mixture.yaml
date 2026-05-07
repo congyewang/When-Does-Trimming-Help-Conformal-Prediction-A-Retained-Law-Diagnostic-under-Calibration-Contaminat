@@ -1,0 +1,29 @@
+group_id: group_b_mixture
+title: Mixture coverage sweep
+description: Validate the contaminated-mixture lower bounds.
+figure_kind: mixture
+theory_refs:
+  - prop:mixture-coverage-fixed
+  - cor:mixture-additive
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 1200
+  calibration_size: 320
+  clean_reference_size: 192
+  threshold_policy: fixed_grid
+  mc_reps: 100
+  random_seed: 2026041602
+  dgp_family: tradeoff
+  contamination_family: separated_covariate
+  predictor_type: linear
+  clean_test_size: 2500
+  mixture_test_size: 2500
+  structure_sample_size: 1800
+  threshold_quantiles: [0.70, 0.80, 0.85, 0.90, 0.95, 0.975, 0.99]
+  methods: [stein_trimmed, split_conformal]
+  include_mixture_eval: true
+experiments:
+  - config_id: mixture_tradeoff
+    title: Mixture coverage on trade-off DGP
+    description: Contaminated-mixture evaluation for the trade-off scenario.

@@ -1,0 +1,31 @@
+group_id: group_e_retained_concentration
+title: Retained-set concentration
+description: Finite-sample concentration of retained clean, dirty, and total counts.
+figure_kind: retained_concentration
+theory_refs:
+  - lem:fixed-threshold
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 1000
+  clean_reference_size: 160
+  threshold_policy: fixed_grid
+  mc_reps: 100
+  random_seed: 2026041605
+  dgp_family: tradeoff
+  contamination_family: separated_covariate
+  predictor_type: linear
+  clean_test_size: 2200
+  mixture_test_size: 2200
+  structure_sample_size: 1600
+  threshold_quantiles: [0.95]
+  methods: [stein_trimmed]
+experiments:
+  - config_id: concentration_m100
+    calibration_size: 100
+  - config_id: concentration_m200
+    calibration_size: 200
+  - config_id: concentration_m400
+    calibration_size: 400
+  - config_id: concentration_m800
+    calibration_size: 800

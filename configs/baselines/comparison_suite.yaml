@@ -1,0 +1,55 @@
+group_id: baseline_comparison_suite
+title: Baseline comparison suite
+description: Compare Stein trimming against apples-to-apples baseline adapters on shared random seeds and DGPs.
+figure_kind: baseline_compare
+theory_refs:
+  - thm:robust-coverage-ksd-trimmed
+  - thm:ideal-separation-fixed
+  - thm:no-separation-fixed
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 600
+  calibration_size: 180
+  clean_reference_size: 96
+  threshold_policy: clean_reference_only
+  mc_reps: 30
+  random_seed: 2026041619
+  predictor_type: linear
+  clean_test_size: 900
+  mixture_test_size: 900
+  structure_sample_size: 900
+  include_mixture_eval: true
+  threshold_quantiles: [0.95]
+  methods:
+    - stein_trimmed
+    - ordinary_split_conformal
+    - cqr_conformal
+    - clean_oracle_trim
+    - clarkson_contaminated_split
+experiments:
+  - config_id: compare_tradeoff
+    title: Trade-off DGP baseline comparison
+    dgp_family: tradeoff
+    contamination_family: separated_covariate
+  - config_id: compare_ideal
+    title: Ideal-separation baseline comparison
+    dgp_family: ideal_separation
+    contamination_family: ideal_covariate
+  - config_id: compare_no_sep
+    title: No-separation baseline comparison
+    dgp_family: no_separation
+    contamination_family: no_separation
+  - config_id: compare_response_appendix
+    title: Response-contamination appendix baselines
+    dgp_family: response_contamination
+    contamination_family: response_contamination
+    methods:
+      - stein_trimmed
+      - ordinary_split_conformal
+      - cqr_conformal
+      - clean_oracle_trim
+      - clarkson_contaminated_split
+      - einbinder_noisy_residual
+      - einbinder_noisy_cqr
+    notes: Appendix-tier noisy-label baselines are only run on response-contamination scenarios.

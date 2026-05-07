@@ -1,0 +1,26 @@
+group_id: baseline_example_cqr_conformal
+title: CQR conformal example
+description: Minimal config example for the CQR-based conformal baseline adapter.
+figure_kind: baseline_compare
+theory_refs:
+  - thm:robust-coverage-ksd-trimmed
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 400
+  calibration_size: 120
+  clean_reference_size: 72
+  threshold_policy: clean_reference_only
+  mc_reps: 30
+  random_seed: 2026041621
+  predictor_type: cqr_linear
+  clean_test_size: 400
+  mixture_test_size: 400
+  structure_sample_size: 360
+  include_mixture_eval: true
+  threshold_quantiles: [0.95]
+  methods: [cqr_conformal]
+experiments:
+  - config_id: cqr_conformal_example
+    dgp_family: tradeoff
+    contamination_family: separated_covariate

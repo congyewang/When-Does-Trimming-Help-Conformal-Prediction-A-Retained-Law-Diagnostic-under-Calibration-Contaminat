@@ -1,0 +1,45 @@
+group_id: group_x_ksd_mahalanobis_advantage
+title: KSD advantage over Mahalanobis on a bimodal clean covariate law
+description: Dirty covariates are placed in inter-modal slope/valley regions where global Mahalanobis distance is small but the clean mixture Stein score is large.
+figure_kind: multi_metric_baseline
+theory_refs:
+  - thm:robust-coverage-ksd-trimmed
+  - prop:stein-witness-boundedness
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 1200
+  calibration_size: 400
+  clean_reference_size: 240
+  threshold_policy: fixed_grid
+  mc_reps: 100
+  random_seed: 2026042401
+  dgp_family: bimodal_covariate
+  contamination_family: partial_separation
+  predictor_type: linear
+  clean_test_size: 4000
+  mixture_test_size: 4000
+  structure_sample_size: 3000
+  threshold_quantiles: [0.50, 0.60, 0.70, 0.80, 0.90]
+  methods: [stein_trimmed, score_norm_trim, mahalanobis_trim, gmm_mahalanobis_trim, ordinary_split_conformal, clean_oracle_trim, random_trim, residual_trim]
+  compute_population_metrics: false
+  include_mixture_eval: true
+  score_model_mode: fitted_bimodal_mixture
+  bandwidth_scale: 1.0
+experiments:
+  - config_id: bimodal_center_negative_control
+    title: "Negative control: dirty covariates centered at the symmetric anti-mode"
+    dirty_loc: 0.0
+    dirty_scale: 0.12
+  - config_id: bimodal_slope_loc040
+    title: "KSD-favorable inter-modal slope, dirty_loc=0.4"
+    dirty_loc: 0.4
+    dirty_scale: 0.12
+  - config_id: bimodal_slope_loc060
+    title: "KSD-favorable inter-modal slope, dirty_loc=0.6"
+    dirty_loc: 0.6
+    dirty_scale: 0.12
+  - config_id: bimodal_slope_loc080
+    title: "KSD-favorable inter-modal slope, dirty_loc=0.8"
+    dirty_loc: 0.8
+    dirty_scale: 0.12

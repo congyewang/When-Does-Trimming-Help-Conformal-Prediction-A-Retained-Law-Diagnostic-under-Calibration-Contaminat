@@ -1,0 +1,27 @@
+group_id: baseline_example_einbinder_noisy_cqr
+title: Einbinder noisy CQR example
+description: Minimal config example for the appendix-tier noisy-label CQR baseline adapter.
+figure_kind: baseline_compare
+theory_refs:
+  - thm:robust-coverage-ksd-trimmed
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 400
+  calibration_size: 120
+  clean_reference_size: 72
+  threshold_policy: clean_reference_only
+  mc_reps: 30
+  random_seed: 2026041625
+  predictor_type: cqr_linear
+  clean_test_size: 400
+  mixture_test_size: 400
+  structure_sample_size: 360
+  include_mixture_eval: true
+  threshold_quantiles: [0.95]
+  methods: [einbinder_noisy_cqr]
+  notes: Appendix-tier noisy-label comparator; only use on response contamination.
+experiments:
+  - config_id: einbinder_noisy_cqr_example
+    dgp_family: response_contamination
+    contamination_family: response_contamination

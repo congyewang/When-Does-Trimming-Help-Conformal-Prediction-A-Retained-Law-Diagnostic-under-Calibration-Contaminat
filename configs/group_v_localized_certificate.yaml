@@ -1,0 +1,56 @@
+group_id: group_v_localized_certificate
+title: Localized explicit Stein certificate diagnostics
+description: Diagnose localized Corollary 2 feasibility over working-set radii and separation strengths.
+figure_kind: localized_certificate
+theory_refs:
+  - lem:ksd-separation
+  - cor:ksd-explicit-clean-coverage
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 1000
+  calibration_size: 400
+  clean_reference_size: 240
+  threshold_policy: ksd_geometric_localized
+  mc_reps: 100
+  random_seed: 2026042106
+  dgp_family: gaussian_homoscedastic
+  contamination_family: partial_separation
+  predictor_type: linear
+  clean_test_size: 4000
+  mixture_test_size: 4000
+  structure_sample_size: 5000
+  threshold_quantiles: [0.95]
+  methods: [stein_trimmed]
+  compute_population_metrics: true
+  include_mixture_eval: true
+  score_model_mode: well_specified
+  dirty_scale: 0.8
+experiments:
+  - config_id: local_cert_loc2_R15
+    dirty_loc: 2.0
+    working_radius: 1.5
+  - config_id: local_cert_loc2_R20
+    dirty_loc: 2.0
+    working_radius: 2.0
+  - config_id: local_cert_loc2_R30
+    dirty_loc: 2.0
+    working_radius: 3.0
+  - config_id: local_cert_loc4_R15
+    dirty_loc: 4.0
+    working_radius: 1.5
+  - config_id: local_cert_loc4_R20
+    dirty_loc: 4.0
+    working_radius: 2.0
+  - config_id: local_cert_loc4_R30
+    dirty_loc: 4.0
+    working_radius: 3.0
+  - config_id: local_cert_loc6_R15
+    dirty_loc: 6.0
+    working_radius: 1.5
+  - config_id: local_cert_loc6_R20
+    dirty_loc: 6.0
+    working_radius: 2.0
+  - config_id: local_cert_loc6_R30
+    dirty_loc: 6.0
+    working_radius: 3.0

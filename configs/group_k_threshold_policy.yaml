@@ -1,0 +1,33 @@
+group_id: group_k_threshold_policy
+title: Threshold policy comparison
+description: Compare pre-registered, clean-reference, KSD, and oracle threshold policies.
+figure_kind: baseline_compare
+theory_refs:
+  - rem:threshold-choice
+  - rem:ksd-to-tilde-eps
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 1000
+  calibration_size: 280
+  clean_reference_size: 192
+  mc_reps: 100
+  random_seed: 2026041611
+  dgp_family: tradeoff
+  contamination_family: separated_covariate
+  predictor_type: linear
+  clean_test_size: 1800
+  mixture_test_size: 1800
+  structure_sample_size: 1500
+  threshold_quantiles: [0.95]
+  methods: [stein_trimmed]
+  compute_population_metrics: true
+experiments:
+  - config_id: policy_fixed
+    threshold_policy: fixed_grid
+  - config_id: policy_clean_ref
+    threshold_policy: clean_reference_only
+  - config_id: policy_ksd
+    threshold_policy: ksd_geometric
+  - config_id: policy_oracle
+    threshold_policy: oracle

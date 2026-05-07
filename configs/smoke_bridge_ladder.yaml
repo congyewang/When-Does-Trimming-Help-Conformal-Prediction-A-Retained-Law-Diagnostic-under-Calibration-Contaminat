@@ -1,0 +1,54 @@
+group_id: smoke_bridge_ladder
+title: Smoke bridge ladder
+description: Tiny bridge-ladder run for smoke testing.
+figure_kind: bridge_ladder
+theory_refs:
+  - prop:stein-score-bridge
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 220
+  calibration_size: 80
+  threshold_policy: clean_reference_only
+  mc_reps: 3
+  random_seed: 2026042003
+  dgp_family: gaussian_homoscedastic
+  contamination_family: partial_separation
+  predictor_type: linear
+  clean_test_size: 200
+  mixture_test_size: 200
+  structure_sample_size: 240
+  threshold_quantiles: [0.95]
+  methods: [stein_trimmed]
+  compute_population_metrics: true
+  reference_quantile: 0.95
+  dirty_loc: 4.0
+  dirty_scale: 0.8
+  population_sample_size: 600
+  evaluation_grid_size: 64
+  notes: Population Stein objects are approximated numerically on a finite clean sample and grid.
+experiments:
+  - config_id: smoke_bridge_oracle_r048
+    clean_reference_size: 48
+    score_model_mode: oracle
+  - config_id: smoke_bridge_oracle_r096
+    clean_reference_size: 96
+    score_model_mode: oracle
+  - config_id: smoke_bridge_well_r048
+    clean_reference_size: 48
+    score_model_mode: well_specified
+  - config_id: smoke_bridge_well_r096
+    clean_reference_size: 96
+    score_model_mode: well_specified
+  - config_id: smoke_bridge_miss_r048
+    clean_reference_size: 48
+    score_model_mode: mis_specified
+    bandwidth_scale: 1.6
+    fit_mean_offset: 0.45
+    fit_variance_scale: 1.75
+  - config_id: smoke_bridge_miss_r096
+    clean_reference_size: 96
+    score_model_mode: mis_specified
+    bandwidth_scale: 1.6
+    fit_mean_offset: 0.45
+    fit_variance_scale: 1.75

@@ -1,0 +1,30 @@
+group_id: smoke_ksd_mahalanobis_advantage
+title: Smoke KSD-vs-Mahalanobis advantage
+description: Minimal bimodal inter-modal contamination smoke test.
+figure_kind: multi_metric_baseline
+theory_refs:
+  - thm:robust-coverage-ksd-trimmed
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 300
+  calibration_size: 120
+  clean_reference_size: 80
+  threshold_policy: fixed_grid
+  mc_reps: 3
+  random_seed: 2026042402
+  dgp_family: bimodal_covariate
+  contamination_family: partial_separation
+  predictor_type: linear
+  clean_test_size: 600
+  mixture_test_size: 600
+  structure_sample_size: 400
+  threshold_quantiles: [0.60, 0.80]
+  methods: [stein_trimmed, mahalanobis_trim, ordinary_split_conformal, clean_oracle_trim, random_trim, residual_trim]
+  compute_population_metrics: false
+  include_mixture_eval: true
+  score_model_mode: fitted_bimodal_mixture
+experiments:
+  - config_id: smoke_bimodal_slope_loc060
+    dirty_loc: 0.6
+    dirty_scale: 0.12

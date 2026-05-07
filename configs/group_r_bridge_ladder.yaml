@@ -1,0 +1,139 @@
+group_id: group_r_bridge_ladder
+title: Bridge approximation ladder
+description: Compare oracle, well-specified, and misspecified Stein scores under the same bridge pipeline.
+figure_kind: bridge_ladder
+theory_refs:
+  - prop:stein-score-bridge
+  - cor:stein-witness-uniform-bridge
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 900
+  calibration_size: 320
+  threshold_policy: clean_reference_only
+  mc_reps: 100
+  random_seed: 2026042001
+  dgp_family: gaussian_homoscedastic
+  contamination_family: partial_separation
+  predictor_type: linear
+  clean_test_size: 1600
+  mixture_test_size: 1600
+  structure_sample_size: 1200
+  threshold_quantiles: [0.95]
+  methods: [stein_trimmed]
+  compute_population_metrics: true
+  reference_quantile: 0.95
+  dirty_loc: 4.0
+  dirty_scale: 0.8
+  population_sample_size: 2000
+  evaluation_grid_size: 128
+  notes: Population Stein objects are approximated numerically using a finite clean Monte Carlo sample and a finite evaluation grid.
+experiments:
+  - config_id: bridge_oracle_r048_eps010
+    title: Oracle score r=48 eps=0.10
+    clean_reference_size: 48
+    epsilon: 0.10
+    score_model_mode: oracle
+  - config_id: bridge_oracle_r096_eps010
+    title: Oracle score r=96 eps=0.10
+    clean_reference_size: 96
+    epsilon: 0.10
+    score_model_mode: oracle
+  - config_id: bridge_oracle_r192_eps010
+    title: Oracle score r=192 eps=0.10
+    clean_reference_size: 192
+    epsilon: 0.10
+    score_model_mode: oracle
+  - config_id: bridge_well_r048_eps010
+    title: Well-specified score r=48 eps=0.10
+    clean_reference_size: 48
+    epsilon: 0.10
+    score_model_mode: well_specified
+  - config_id: bridge_well_r096_eps010
+    title: Well-specified score r=96 eps=0.10
+    clean_reference_size: 96
+    epsilon: 0.10
+    score_model_mode: well_specified
+  - config_id: bridge_well_r192_eps010
+    title: Well-specified score r=192 eps=0.10
+    clean_reference_size: 192
+    epsilon: 0.10
+    score_model_mode: well_specified
+  - config_id: bridge_miss_r048_eps010
+    title: Misspecified score r=48 eps=0.10
+    clean_reference_size: 48
+    epsilon: 0.10
+    score_model_mode: mis_specified
+    bandwidth_scale: 1.6
+    fit_mean_offset: 0.45
+    fit_variance_scale: 1.75
+  - config_id: bridge_miss_r096_eps010
+    title: Misspecified score r=96 eps=0.10
+    clean_reference_size: 96
+    epsilon: 0.10
+    score_model_mode: mis_specified
+    bandwidth_scale: 1.6
+    fit_mean_offset: 0.45
+    fit_variance_scale: 1.75
+  - config_id: bridge_miss_r192_eps010
+    title: Misspecified score r=192 eps=0.10
+    clean_reference_size: 192
+    epsilon: 0.10
+    score_model_mode: mis_specified
+    bandwidth_scale: 1.6
+    fit_mean_offset: 0.45
+    fit_variance_scale: 1.75
+  - config_id: bridge_oracle_r048_eps020
+    title: Oracle score r=48 eps=0.20
+    clean_reference_size: 48
+    epsilon: 0.20
+    score_model_mode: oracle
+  - config_id: bridge_oracle_r096_eps020
+    title: Oracle score r=96 eps=0.20
+    clean_reference_size: 96
+    epsilon: 0.20
+    score_model_mode: oracle
+  - config_id: bridge_oracle_r192_eps020
+    title: Oracle score r=192 eps=0.20
+    clean_reference_size: 192
+    epsilon: 0.20
+    score_model_mode: oracle
+  - config_id: bridge_well_r048_eps020
+    title: Well-specified score r=48 eps=0.20
+    clean_reference_size: 48
+    epsilon: 0.20
+    score_model_mode: well_specified
+  - config_id: bridge_well_r096_eps020
+    title: Well-specified score r=96 eps=0.20
+    clean_reference_size: 96
+    epsilon: 0.20
+    score_model_mode: well_specified
+  - config_id: bridge_well_r192_eps020
+    title: Well-specified score r=192 eps=0.20
+    clean_reference_size: 192
+    epsilon: 0.20
+    score_model_mode: well_specified
+  - config_id: bridge_miss_r048_eps020
+    title: Misspecified score r=48 eps=0.20
+    clean_reference_size: 48
+    epsilon: 0.20
+    score_model_mode: mis_specified
+    bandwidth_scale: 1.6
+    fit_mean_offset: 0.45
+    fit_variance_scale: 1.75
+  - config_id: bridge_miss_r096_eps020
+    title: Misspecified score r=96 eps=0.20
+    clean_reference_size: 96
+    epsilon: 0.20
+    score_model_mode: mis_specified
+    bandwidth_scale: 1.6
+    fit_mean_offset: 0.45
+    fit_variance_scale: 1.75
+  - config_id: bridge_miss_r192_eps020
+    title: Misspecified score r=192 eps=0.20
+    clean_reference_size: 192
+    epsilon: 0.20
+    score_model_mode: mis_specified
+    bandwidth_scale: 1.6
+    fit_mean_offset: 0.45
+    fit_variance_scale: 1.75

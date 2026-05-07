@@ -1,0 +1,17 @@
+# Task-compatible regression side-by-side with Clarkson et al.'s ordinary
+# contaminated split conformal regression baseline.
+seed_base: 321
+n_reps: 50
+alpha: 0.10
+indexing: standard
+dirty_family: [response_shift, covariate_shift, high_leverage_response, small_residual]
+epsilon: [0.05, 0.10, 0.20, 0.30]
+n_train: 500
+n_cal: 500
+n_test: 2500
+p: 5
+sigma: 1.0
+shift: 3.0
+residual_shift: 3.0
+residual_scale: 1.0
+trim_quantiles: [0.60, 0.70, 0.80, 0.90, 0.95]

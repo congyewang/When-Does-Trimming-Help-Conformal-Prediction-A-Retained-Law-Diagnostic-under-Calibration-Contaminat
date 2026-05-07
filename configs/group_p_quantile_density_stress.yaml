@@ -1,0 +1,57 @@
+group_id: group_p_quantile_density_stress
+title: Quantile-density stress test
+description: Stress the quantile-perturbation bound across clean residual density regimes.
+figure_kind: quantile_density
+theory_refs:
+  - lem:quantile-perturbation
+  - cor:delta-bias-quantile
+defaults:
+  alpha: 0.1
+  train_size: 900
+  calibration_size: 320
+  clean_reference_size: 160
+  threshold_policy: fixed_grid
+  mc_reps: 100
+  random_seed: 2026041901
+  contamination_family: partial_separation
+  predictor_type: linear
+  clean_test_size: 1600
+  mixture_test_size: 1600
+  structure_sample_size: 1200
+  threshold_quantiles: [0.50, 0.60, 0.70, 0.80, 0.90, 0.95, 0.975]
+  methods: [stein_trimmed]
+  dirty_loc: 4.0
+  dirty_scale: 0.8
+experiments:
+  - config_id: quantile_gaussian_eps010
+    title: Gaussian clean eps=0.10
+    dgp_family: gaussian_homoscedastic
+    epsilon: 0.10
+  - config_id: quantile_gaussian_eps020
+    title: Gaussian clean eps=0.20
+    dgp_family: gaussian_homoscedastic
+    epsilon: 0.20
+  - config_id: quantile_heavy_tail_eps010
+    title: Heavy-tail clean eps=0.10
+    dgp_family: heavy_tail_clean
+    epsilon: 0.10
+  - config_id: quantile_heavy_tail_eps020
+    title: Heavy-tail clean eps=0.20
+    dgp_family: heavy_tail_clean
+    epsilon: 0.20
+  - config_id: quantile_bimodal_eps010
+    title: Bimodal clean eps=0.10
+    dgp_family: bimodal_clean
+    epsilon: 0.10
+  - config_id: quantile_bimodal_eps020
+    title: Bimodal clean eps=0.20
+    dgp_family: bimodal_clean
+    epsilon: 0.20
+  - config_id: quantile_low_density_eps010
+    title: Low-density clean eps=0.10
+    dgp_family: low_density_near_quantile
+    epsilon: 0.10
+  - config_id: quantile_low_density_eps020
+    title: Low-density clean eps=0.20
+    dgp_family: low_density_near_quantile
+    epsilon: 0.20

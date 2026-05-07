@@ -1,0 +1,32 @@
+group_id: group_u_label_only_failure
+title: Label-only contamination failure mode
+description: Demonstrate that covariate-only Stein trimming does not reduce contamination when Q_X equals P_X.
+figure_kind: label_only_failure
+theory_refs:
+  - thm:no-separation-fixed
+  - thm:robust-coverage-ksd-trimmed
+defaults:
+  alpha: 0.1
+  train_size: 1000
+  calibration_size: 400
+  clean_reference_size: 200
+  threshold_policy: fixed_grid
+  mc_reps: 100
+  random_seed: 2026042105
+  dgp_family: gaussian_homoscedastic
+  contamination_family: response_contamination
+  predictor_type: linear
+  clean_test_size: 4000
+  mixture_test_size: 4000
+  structure_sample_size: 3000
+  threshold_quantiles: [0.70, 0.80, 0.90, 0.95]
+  methods: [stein_trimmed, ordinary_split_conformal, clean_oracle_trim, random_trim, residual_trim]
+  compute_population_metrics: true
+  include_mixture_eval: true
+experiments:
+  - config_id: label_only_eps010
+    epsilon: 0.10
+  - config_id: label_only_eps020
+    epsilon: 0.20
+  - config_id: label_only_eps030
+    epsilon: 0.30

@@ -1,0 +1,14 @@
+seed_base: 123
+n_reps: 2
+alpha: 0.10
+indexing: repo
+dataset: [logistic]
+model: [log_reg]
+eps: [0.20]
+n_train: 300
+n_cal: 300
+n_test: 500
+p: 5
+K: 3
+trim_quantiles: [0.70, 0.90]
+include_oracle: true

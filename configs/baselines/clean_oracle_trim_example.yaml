@@ -1,0 +1,26 @@
+group_id: baseline_example_clean_oracle_trim
+title: Clean oracle trimming example
+description: Minimal config example for the clean-oracle trimming baseline adapter.
+figure_kind: baseline_compare
+theory_refs:
+  - thm:ideal-separation-fixed
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 400
+  calibration_size: 120
+  clean_reference_size: 72
+  threshold_policy: clean_reference_only
+  mc_reps: 30
+  random_seed: 2026041622
+  predictor_type: linear
+  clean_test_size: 400
+  mixture_test_size: 400
+  structure_sample_size: 360
+  include_mixture_eval: true
+  threshold_quantiles: [0.95]
+  methods: [clean_oracle_trim]
+experiments:
+  - config_id: clean_oracle_trim_example
+    dgp_family: tradeoff
+    contamination_family: separated_covariate

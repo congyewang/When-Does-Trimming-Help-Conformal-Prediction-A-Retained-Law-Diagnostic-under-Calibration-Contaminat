@@ -1,0 +1,36 @@
+group_id: group_c_ideal_interpolation
+title: Ideal-separation interpolation
+description: Interpolate from partial separation toward ideal separation.
+figure_kind: interpolation
+theory_refs:
+  - thm:ideal-separation-fixed
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 1000
+  calibration_size: 280
+  clean_reference_size: 160
+  threshold_policy: clean_reference_only
+  mc_reps: 100
+  random_seed: 2026041603
+  dgp_family: ideal_separation
+  contamination_family: partial_separation
+  predictor_type: linear
+  clean_test_size: 2200
+  mixture_test_size: 2200
+  structure_sample_size: 1600
+  threshold_quantiles: [0.95]
+  methods: [stein_trimmed, split_conformal, clean_oracle]
+experiments:
+  - config_id: interpolation_loc_2
+    title: Interpolation dirty mean 2
+    dirty_loc: 2.0
+    dirty_scale: 0.8
+  - config_id: interpolation_loc_5
+    title: Interpolation dirty mean 5
+    dirty_loc: 5.0
+    dirty_scale: 0.6
+  - config_id: interpolation_loc_8
+    title: Interpolation dirty mean 8
+    dirty_loc: 8.0
+    dirty_scale: 0.5

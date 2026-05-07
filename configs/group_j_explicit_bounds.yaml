@@ -1,0 +1,27 @@
+group_id: group_j_explicit_bounds
+title: Explicit Stein bound comparison
+description: Compare generic, semi-explicit, and fully explicit clean-test coverage bounds.
+figure_kind: explicit_bounds
+theory_refs:
+  - cor:ksd-explicit-clean-coverage
+  - cor:ksd-explicit-clean-coverage-fully-explicit
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 1100
+  calibration_size: 320
+  clean_reference_size: 192
+  threshold_policy: fixed_grid
+  mc_reps: 100
+  random_seed: 2026041610
+  dgp_family: tradeoff
+  contamination_family: separated_covariate
+  predictor_type: linear
+  clean_test_size: 1800
+  mixture_test_size: 1800
+  structure_sample_size: 1600
+  threshold_quantiles: [0.70, 0.80, 0.85, 0.90, 0.95, 0.975, 0.99]
+  methods: [stein_trimmed]
+  compute_population_metrics: true
+experiments:
+  - config_id: explicit_tradeoff

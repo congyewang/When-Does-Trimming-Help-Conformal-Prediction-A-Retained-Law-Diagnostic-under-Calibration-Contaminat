@@ -1,0 +1,350 @@
+group_id: group_n_regime_map
+title: Main-theorem regime map
+description: Map the best Stein-trimmed regime over contamination, separation, and calibration size.
+figure_kind: heatmap_regime
+theory_refs:
+  - thm:robust-coverage-ksd-trimmed
+  - prop:delta-bias-covariance
+  - lem:delta-bias-tv
+defaults:
+  alpha: 0.1
+  train_size: 900
+  clean_reference_size: 160
+  threshold_policy: fixed_grid
+  mc_reps: 100
+  random_seed: 2026041801
+  dgp_family: tradeoff
+  contamination_family: partial_separation
+  predictor_type: linear
+  clean_test_size: 1600
+  mixture_test_size: 1600
+  structure_sample_size: 1200
+  threshold_quantiles: [0.70, 0.80, 0.90, 0.95]
+  methods: [stein_trimmed, ordinary_split_conformal, clean_oracle_trim, random_trim]
+  include_mixture_eval: true
+  dirty_scale: 0.8
+experiments:
+  - config_id: regime_eps005_sep000_m120
+    title: Regime map eps=0.05 sep=0.0 m=120
+    epsilon: 0.05
+    calibration_size: 120
+    dirty_loc: 0.0
+    separation_strength: 0.0
+  - config_id: regime_eps005_sep050_m120
+    title: Regime map eps=0.05 sep=0.5 m=120
+    epsilon: 0.05
+    calibration_size: 120
+    dirty_loc: 0.5
+    separation_strength: 0.5
+  - config_id: regime_eps005_sep100_m120
+    title: Regime map eps=0.05 sep=1.0 m=120
+    epsilon: 0.05
+    calibration_size: 120
+    dirty_loc: 1.0
+    separation_strength: 1.0
+  - config_id: regime_eps005_sep200_m120
+    title: Regime map eps=0.05 sep=2.0 m=120
+    epsilon: 0.05
+    calibration_size: 120
+    dirty_loc: 2.0
+    separation_strength: 2.0
+  - config_id: regime_eps005_sep400_m120
+    title: Regime map eps=0.05 sep=4.0 m=120
+    epsilon: 0.05
+    calibration_size: 120
+    dirty_loc: 4.0
+    separation_strength: 4.0
+  - config_id: regime_eps005_sep800_m120
+    title: Regime map eps=0.05 sep=8.0 m=120
+    epsilon: 0.05
+    calibration_size: 120
+    dirty_loc: 8.0
+    separation_strength: 8.0
+  - config_id: regime_eps020_sep000_m120
+    title: Regime map eps=0.20 sep=0.0 m=120
+    epsilon: 0.20
+    calibration_size: 120
+    dirty_loc: 0.0
+    separation_strength: 0.0
+  - config_id: regime_eps020_sep050_m120
+    title: Regime map eps=0.20 sep=0.5 m=120
+    epsilon: 0.20
+    calibration_size: 120
+    dirty_loc: 0.5
+    separation_strength: 0.5
+  - config_id: regime_eps020_sep100_m120
+    title: Regime map eps=0.20 sep=1.0 m=120
+    epsilon: 0.20
+    calibration_size: 120
+    dirty_loc: 1.0
+    separation_strength: 1.0
+  - config_id: regime_eps020_sep200_m120
+    title: Regime map eps=0.20 sep=2.0 m=120
+    epsilon: 0.20
+    calibration_size: 120
+    dirty_loc: 2.0
+    separation_strength: 2.0
+  - config_id: regime_eps020_sep400_m120
+    title: Regime map eps=0.20 sep=4.0 m=120
+    epsilon: 0.20
+    calibration_size: 120
+    dirty_loc: 4.0
+    separation_strength: 4.0
+  - config_id: regime_eps020_sep800_m120
+    title: Regime map eps=0.20 sep=8.0 m=120
+    epsilon: 0.20
+    calibration_size: 120
+    dirty_loc: 8.0
+    separation_strength: 8.0
+  - config_id: regime_eps035_sep000_m120
+    title: Regime map eps=0.35 sep=0.0 m=120
+    epsilon: 0.35
+    calibration_size: 120
+    dirty_loc: 0.0
+    separation_strength: 0.0
+  - config_id: regime_eps035_sep050_m120
+    title: Regime map eps=0.35 sep=0.5 m=120
+    epsilon: 0.35
+    calibration_size: 120
+    dirty_loc: 0.5
+    separation_strength: 0.5
+  - config_id: regime_eps035_sep100_m120
+    title: Regime map eps=0.35 sep=1.0 m=120
+    epsilon: 0.35
+    calibration_size: 120
+    dirty_loc: 1.0
+    separation_strength: 1.0
+  - config_id: regime_eps035_sep200_m120
+    title: Regime map eps=0.35 sep=2.0 m=120
+    epsilon: 0.35
+    calibration_size: 120
+    dirty_loc: 2.0
+    separation_strength: 2.0
+  - config_id: regime_eps035_sep400_m120
+    title: Regime map eps=0.35 sep=4.0 m=120
+    epsilon: 0.35
+    calibration_size: 120
+    dirty_loc: 4.0
+    separation_strength: 4.0
+  - config_id: regime_eps035_sep800_m120
+    title: Regime map eps=0.35 sep=8.0 m=120
+    epsilon: 0.35
+    calibration_size: 120
+    dirty_loc: 8.0
+    separation_strength: 8.0
+  - config_id: regime_eps005_sep000_m320
+    title: Regime map eps=0.05 sep=0.0 m=320
+    epsilon: 0.05
+    calibration_size: 320
+    dirty_loc: 0.0
+    separation_strength: 0.0
+  - config_id: regime_eps005_sep050_m320
+    title: Regime map eps=0.05 sep=0.5 m=320
+    epsilon: 0.05
+    calibration_size: 320
+    dirty_loc: 0.5
+    separation_strength: 0.5
+  - config_id: regime_eps005_sep100_m320
+    title: Regime map eps=0.05 sep=1.0 m=320
+    epsilon: 0.05
+    calibration_size: 320
+    dirty_loc: 1.0
+    separation_strength: 1.0
+  - config_id: regime_eps005_sep200_m320
+    title: Regime map eps=0.05 sep=2.0 m=320
+    epsilon: 0.05
+    calibration_size: 320
+    dirty_loc: 2.0
+    separation_strength: 2.0
+  - config_id: regime_eps005_sep400_m320
+    title: Regime map eps=0.05 sep=4.0 m=320
+    epsilon: 0.05
+    calibration_size: 320
+    dirty_loc: 4.0
+    separation_strength: 4.0
+  - config_id: regime_eps005_sep800_m320
+    title: Regime map eps=0.05 sep=8.0 m=320
+    epsilon: 0.05
+    calibration_size: 320
+    dirty_loc: 8.0
+    separation_strength: 8.0
+  - config_id: regime_eps020_sep000_m320
+    title: Regime map eps=0.20 sep=0.0 m=320
+    epsilon: 0.20
+    calibration_size: 320
+    dirty_loc: 0.0
+    separation_strength: 0.0
+  - config_id: regime_eps020_sep050_m320
+    title: Regime map eps=0.20 sep=0.5 m=320
+    epsilon: 0.20
+    calibration_size: 320
+    dirty_loc: 0.5
+    separation_strength: 0.5
+  - config_id: regime_eps020_sep100_m320
+    title: Regime map eps=0.20 sep=1.0 m=320
+    epsilon: 0.20
+    calibration_size: 320
+    dirty_loc: 1.0
+    separation_strength: 1.0
+  - config_id: regime_eps020_sep200_m320
+    title: Regime map eps=0.20 sep=2.0 m=320
+    epsilon: 0.20
+    calibration_size: 320
+    dirty_loc: 2.0
+    separation_strength: 2.0
+  - config_id: regime_eps020_sep400_m320
+    title: Regime map eps=0.20 sep=4.0 m=320
+    epsilon: 0.20
+    calibration_size: 320
+    dirty_loc: 4.0
+    separation_strength: 4.0
+  - config_id: regime_eps020_sep800_m320
+    title: Regime map eps=0.20 sep=8.0 m=320
+    epsilon: 0.20
+    calibration_size: 320
+    dirty_loc: 8.0
+    separation_strength: 8.0
+  - config_id: regime_eps035_sep000_m320
+    title: Regime map eps=0.35 sep=0.0 m=320
+    epsilon: 0.35
+    calibration_size: 320
+    dirty_loc: 0.0
+    separation_strength: 0.0
+  - config_id: regime_eps035_sep050_m320
+    title: Regime map eps=0.35 sep=0.5 m=320
+    epsilon: 0.35
+    calibration_size: 320
+    dirty_loc: 0.5
+    separation_strength: 0.5
+  - config_id: regime_eps035_sep100_m320
+    title: Regime map eps=0.35 sep=1.0 m=320
+    epsilon: 0.35
+    calibration_size: 320
+    dirty_loc: 1.0
+    separation_strength: 1.0
+  - config_id: regime_eps035_sep200_m320
+    title: Regime map eps=0.35 sep=2.0 m=320
+    epsilon: 0.35
+    calibration_size: 320
+    dirty_loc: 2.0
+    separation_strength: 2.0
+  - config_id: regime_eps035_sep400_m320
+    title: Regime map eps=0.35 sep=4.0 m=320
+    epsilon: 0.35
+    calibration_size: 320
+    dirty_loc: 4.0
+    separation_strength: 4.0
+  - config_id: regime_eps035_sep800_m320
+    title: Regime map eps=0.35 sep=8.0 m=320
+    epsilon: 0.35
+    calibration_size: 320
+    dirty_loc: 8.0
+    separation_strength: 8.0
+  - config_id: regime_eps005_sep000_m800
+    title: Regime map eps=0.05 sep=0.0 m=800
+    epsilon: 0.05
+    calibration_size: 800
+    dirty_loc: 0.0
+    separation_strength: 0.0
+  - config_id: regime_eps005_sep050_m800
+    title: Regime map eps=0.05 sep=0.5 m=800
+    epsilon: 0.05
+    calibration_size: 800
+    dirty_loc: 0.5
+    separation_strength: 0.5
+  - config_id: regime_eps005_sep100_m800
+    title: Regime map eps=0.05 sep=1.0 m=800
+    epsilon: 0.05
+    calibration_size: 800
+    dirty_loc: 1.0
+    separation_strength: 1.0
+  - config_id: regime_eps005_sep200_m800
+    title: Regime map eps=0.05 sep=2.0 m=800
+    epsilon: 0.05
+    calibration_size: 800
+    dirty_loc: 2.0
+    separation_strength: 2.0
+  - config_id: regime_eps005_sep400_m800
+    title: Regime map eps=0.05 sep=4.0 m=800
+    epsilon: 0.05
+    calibration_size: 800
+    dirty_loc: 4.0
+    separation_strength: 4.0
+  - config_id: regime_eps005_sep800_m800
+    title: Regime map eps=0.05 sep=8.0 m=800
+    epsilon: 0.05
+    calibration_size: 800
+    dirty_loc: 8.0
+    separation_strength: 8.0
+  - config_id: regime_eps020_sep000_m800
+    title: Regime map eps=0.20 sep=0.0 m=800
+    epsilon: 0.20
+    calibration_size: 800
+    dirty_loc: 0.0
+    separation_strength: 0.0
+  - config_id: regime_eps020_sep050_m800
+    title: Regime map eps=0.20 sep=0.5 m=800
+    epsilon: 0.20
+    calibration_size: 800
+    dirty_loc: 0.5
+    separation_strength: 0.5
+  - config_id: regime_eps020_sep100_m800
+    title: Regime map eps=0.20 sep=1.0 m=800
+    epsilon: 0.20
+    calibration_size: 800
+    dirty_loc: 1.0
+    separation_strength: 1.0
+  - config_id: regime_eps020_sep200_m800
+    title: Regime map eps=0.20 sep=2.0 m=800
+    epsilon: 0.20
+    calibration_size: 800
+    dirty_loc: 2.0
+    separation_strength: 2.0
+  - config_id: regime_eps020_sep400_m800
+    title: Regime map eps=0.20 sep=4.0 m=800
+    epsilon: 0.20
+    calibration_size: 800
+    dirty_loc: 4.0
+    separation_strength: 4.0
+  - config_id: regime_eps020_sep800_m800
+    title: Regime map eps=0.20 sep=8.0 m=800
+    epsilon: 0.20
+    calibration_size: 800
+    dirty_loc: 8.0
+    separation_strength: 8.0
+  - config_id: regime_eps035_sep000_m800
+    title: Regime map eps=0.35 sep=0.0 m=800
+    epsilon: 0.35
+    calibration_size: 800
+    dirty_loc: 0.0
+    separation_strength: 0.0
+  - config_id: regime_eps035_sep050_m800
+    title: Regime map eps=0.35 sep=0.5 m=800
+    epsilon: 0.35
+    calibration_size: 800
+    dirty_loc: 0.5
+    separation_strength: 0.5
+  - config_id: regime_eps035_sep100_m800
+    title: Regime map eps=0.35 sep=1.0 m=800
+    epsilon: 0.35
+    calibration_size: 800
+    dirty_loc: 1.0
+    separation_strength: 1.0
+  - config_id: regime_eps035_sep200_m800
+    title: Regime map eps=0.35 sep=2.0 m=800
+    epsilon: 0.35
+    calibration_size: 800
+    dirty_loc: 2.0
+    separation_strength: 2.0
+  - config_id: regime_eps035_sep400_m800
+    title: Regime map eps=0.35 sep=4.0 m=800
+    epsilon: 0.35
+    calibration_size: 800
+    dirty_loc: 4.0
+    separation_strength: 4.0
+  - config_id: regime_eps035_sep800_m800
+    title: Regime map eps=0.35 sep=8.0 m=800
+    epsilon: 0.35
+    calibration_size: 800
+    dirty_loc: 8.0
+    separation_strength: 8.0

@@ -1,0 +1,34 @@
+group_id: group_m_stress_tests
+title: Stress tests
+description: Stress tests under multiple contamination modes.
+figure_kind: multi_metric_stress
+theory_refs:
+  - thm:robust-coverage-ksd-trimmed
+  - prop:mixture-coverage-fixed
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 1000
+  calibration_size: 280
+  clean_reference_size: 160
+  threshold_policy: clean_reference_only
+  mc_reps: 100
+  random_seed: 2026041613
+  predictor_type: linear
+  clean_test_size: 1800
+  mixture_test_size: 1800
+  structure_sample_size: 1500
+  threshold_quantiles: [0.95]
+  methods: [stein_trimmed, split_conformal, cqr, residual_trim]
+  include_mixture_eval: true
+experiments:
+  - config_id: stress_high_leverage
+    dgp_family: high_leverage
+    contamination_family: high_leverage
+    leverage_loc: 10.0
+  - config_id: stress_response
+    dgp_family: response_contamination
+    contamination_family: response_contamination
+  - config_id: stress_heavy_tail
+    dgp_family: heavy_tail
+    contamination_family: heavy_tail

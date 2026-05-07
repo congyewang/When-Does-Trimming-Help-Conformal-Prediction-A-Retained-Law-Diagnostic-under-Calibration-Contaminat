@@ -1,0 +1,26 @@
+group_id: baseline_example_clarkson_contaminated_split
+title: Clarkson contaminated split example
+description: Minimal config example for the Clarkson et al. regression-compatible contaminated split baseline.
+figure_kind: baseline_compare
+theory_refs:
+  - thm:robust-coverage-ksd-trimmed
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 400
+  calibration_size: 120
+  clean_reference_size: 72
+  threshold_policy: clean_reference_only
+  mc_reps: 2
+  random_seed: 2026041623
+  predictor_type: linear
+  clean_test_size: 400
+  mixture_test_size: 400
+  structure_sample_size: 360
+  include_mixture_eval: true
+  threshold_quantiles: [0.95]
+  methods: [clarkson_contaminated_split]
+experiments:
+  - config_id: clarkson_contaminated_split_example
+    dgp_family: tradeoff
+    contamination_family: separated_covariate

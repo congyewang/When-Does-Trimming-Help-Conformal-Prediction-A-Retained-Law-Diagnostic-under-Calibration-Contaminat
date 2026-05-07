@@ -1,0 +1,35 @@
+group_id: group_w_large_m_tightness
+title: Large-calibration theorem tightness
+description: Show how the finite-sample remainder and theorem slack shrink as calibration size grows.
+figure_kind: large_m_tightness
+theory_refs:
+  - thm:robust-coverage-ksd-trimmed
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 1500
+  clean_reference_size: 300
+  threshold_policy: fixed_grid
+  mc_reps: 100
+  random_seed: 2026042107
+  dgp_family: tradeoff
+  contamination_family: partial_separation
+  predictor_type: linear
+  clean_test_size: 5000
+  mixture_test_size: 5000
+  structure_sample_size: 5000
+  threshold_quantiles: [0.85, 0.90, 0.95]
+  methods: [stein_trimmed, ordinary_split_conformal, clean_oracle_trim]
+  compute_population_metrics: true
+  include_mixture_eval: true
+  dirty_loc: 4.0
+  dirty_scale: 0.8
+experiments:
+  - config_id: large_m_320
+    calibration_size: 320
+  - config_id: large_m_1000
+    calibration_size: 1000
+  - config_id: large_m_3000
+    calibration_size: 3000
+  - config_id: large_m_10000
+    calibration_size: 10000

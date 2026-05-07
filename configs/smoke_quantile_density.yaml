@@ -1,0 +1,37 @@
+group_id: smoke_quantile_density
+title: Smoke quantile density
+description: Tiny quantile-density run for smoke testing.
+figure_kind: quantile_density
+theory_refs:
+  - lem:quantile-perturbation
+  - cor:delta-bias-quantile
+defaults:
+  alpha: 0.1
+  train_size: 220
+  calibration_size: 80
+  clean_reference_size: 48
+  threshold_policy: fixed_grid
+  mc_reps: 3
+  random_seed: 2026041903
+  contamination_family: partial_separation
+  predictor_type: linear
+  clean_test_size: 200
+  mixture_test_size: 200
+  structure_sample_size: 240
+  threshold_quantiles: [0.75, 0.95]
+  methods: [stein_trimmed]
+  dirty_loc: 4.0
+  dirty_scale: 0.8
+experiments:
+  - config_id: smoke_quantile_gaussian_eps010
+    dgp_family: gaussian_homoscedastic
+    epsilon: 0.10
+  - config_id: smoke_quantile_gaussian_eps020
+    dgp_family: gaussian_homoscedastic
+    epsilon: 0.20
+  - config_id: smoke_quantile_low_density_eps010
+    dgp_family: low_density_near_quantile
+    epsilon: 0.10
+  - config_id: smoke_quantile_low_density_eps020
+    dgp_family: low_density_near_quantile
+    epsilon: 0.20

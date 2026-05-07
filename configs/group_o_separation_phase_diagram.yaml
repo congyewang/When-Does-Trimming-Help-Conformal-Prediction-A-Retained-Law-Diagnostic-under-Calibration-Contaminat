@@ -1,0 +1,319 @@
+group_id: group_o_separation_phase_diagram
+title: Separation phase diagram
+description: Trace the transition from no separation to near-ideal separation on a continuous path.
+figure_kind: phase_diagram
+theory_refs:
+  - thm:ideal-separation-fixed
+  - thm:no-separation-fixed
+defaults:
+  alpha: 0.1
+  train_size: 900
+  clean_reference_size: 160
+  threshold_policy: clean_reference_only
+  mc_reps: 100
+  random_seed: 2026041802
+  dgp_family: ideal_separation
+  contamination_family: partial_separation
+  predictor_type: linear
+  clean_test_size: 1600
+  mixture_test_size: 1600
+  structure_sample_size: 1200
+  threshold_quantiles: [0.95]
+  methods: [stein_trimmed, ordinary_split_conformal, clean_oracle_trim, residual_trim]
+  reference_quantile: 0.95
+  dirty_scale: 0.8
+experiments:
+  - config_id: phase_eps010_sep000_m200
+    title: Phase eps=0.10 sep=0.0 m=200
+    epsilon: 0.10
+    calibration_size: 200
+    dirty_loc: 0.0
+    separation_strength: 0.0
+    phase_region: no_separation
+  - config_id: phase_eps010_sep025_m200
+    title: Phase eps=0.10 sep=0.25 m=200
+    epsilon: 0.10
+    calibration_size: 200
+    dirty_loc: 0.25
+    separation_strength: 0.25
+    phase_region: no_separation
+  - config_id: phase_eps010_sep050_m200
+    title: Phase eps=0.10 sep=0.5 m=200
+    epsilon: 0.10
+    calibration_size: 200
+    dirty_loc: 0.5
+    separation_strength: 0.5
+    phase_region: no_separation
+  - config_id: phase_eps010_sep100_m200
+    title: Phase eps=0.10 sep=1.0 m=200
+    epsilon: 0.10
+    calibration_size: 200
+    dirty_loc: 1.0
+    separation_strength: 1.0
+    phase_region: transition
+  - config_id: phase_eps010_sep200_m200
+    title: Phase eps=0.10 sep=2.0 m=200
+    epsilon: 0.10
+    calibration_size: 200
+    dirty_loc: 2.0
+    separation_strength: 2.0
+    phase_region: transition
+  - config_id: phase_eps010_sep400_m200
+    title: Phase eps=0.10 sep=4.0 m=200
+    epsilon: 0.10
+    calibration_size: 200
+    dirty_loc: 4.0
+    separation_strength: 4.0
+    phase_region: near_ideal
+  - config_id: phase_eps010_sep800_m200
+    title: Phase eps=0.10 sep=8.0 m=200
+    epsilon: 0.10
+    calibration_size: 200
+    dirty_loc: 8.0
+    separation_strength: 8.0
+    phase_region: near_ideal
+  - config_id: phase_eps020_sep000_m200
+    title: Phase eps=0.20 sep=0.0 m=200
+    epsilon: 0.20
+    calibration_size: 200
+    dirty_loc: 0.0
+    separation_strength: 0.0
+    phase_region: no_separation
+  - config_id: phase_eps020_sep025_m200
+    title: Phase eps=0.20 sep=0.25 m=200
+    epsilon: 0.20
+    calibration_size: 200
+    dirty_loc: 0.25
+    separation_strength: 0.25
+    phase_region: no_separation
+  - config_id: phase_eps020_sep050_m200
+    title: Phase eps=0.20 sep=0.5 m=200
+    epsilon: 0.20
+    calibration_size: 200
+    dirty_loc: 0.5
+    separation_strength: 0.5
+    phase_region: no_separation
+  - config_id: phase_eps020_sep100_m200
+    title: Phase eps=0.20 sep=1.0 m=200
+    epsilon: 0.20
+    calibration_size: 200
+    dirty_loc: 1.0
+    separation_strength: 1.0
+    phase_region: transition
+  - config_id: phase_eps020_sep200_m200
+    title: Phase eps=0.20 sep=2.0 m=200
+    epsilon: 0.20
+    calibration_size: 200
+    dirty_loc: 2.0
+    separation_strength: 2.0
+    phase_region: transition
+  - config_id: phase_eps020_sep400_m200
+    title: Phase eps=0.20 sep=4.0 m=200
+    epsilon: 0.20
+    calibration_size: 200
+    dirty_loc: 4.0
+    separation_strength: 4.0
+    phase_region: near_ideal
+  - config_id: phase_eps020_sep800_m200
+    title: Phase eps=0.20 sep=8.0 m=200
+    epsilon: 0.20
+    calibration_size: 200
+    dirty_loc: 8.0
+    separation_strength: 8.0
+    phase_region: near_ideal
+  - config_id: phase_eps030_sep000_m200
+    title: Phase eps=0.30 sep=0.0 m=200
+    epsilon: 0.30
+    calibration_size: 200
+    dirty_loc: 0.0
+    separation_strength: 0.0
+    phase_region: no_separation
+  - config_id: phase_eps030_sep025_m200
+    title: Phase eps=0.30 sep=0.25 m=200
+    epsilon: 0.30
+    calibration_size: 200
+    dirty_loc: 0.25
+    separation_strength: 0.25
+    phase_region: no_separation
+  - config_id: phase_eps030_sep050_m200
+    title: Phase eps=0.30 sep=0.5 m=200
+    epsilon: 0.30
+    calibration_size: 200
+    dirty_loc: 0.5
+    separation_strength: 0.5
+    phase_region: no_separation
+  - config_id: phase_eps030_sep100_m200
+    title: Phase eps=0.30 sep=1.0 m=200
+    epsilon: 0.30
+    calibration_size: 200
+    dirty_loc: 1.0
+    separation_strength: 1.0
+    phase_region: transition
+  - config_id: phase_eps030_sep200_m200
+    title: Phase eps=0.30 sep=2.0 m=200
+    epsilon: 0.30
+    calibration_size: 200
+    dirty_loc: 2.0
+    separation_strength: 2.0
+    phase_region: transition
+  - config_id: phase_eps030_sep400_m200
+    title: Phase eps=0.30 sep=4.0 m=200
+    epsilon: 0.30
+    calibration_size: 200
+    dirty_loc: 4.0
+    separation_strength: 4.0
+    phase_region: near_ideal
+  - config_id: phase_eps030_sep800_m200
+    title: Phase eps=0.30 sep=8.0 m=200
+    epsilon: 0.30
+    calibration_size: 200
+    dirty_loc: 8.0
+    separation_strength: 8.0
+    phase_region: near_ideal
+  - config_id: phase_eps010_sep000_m800
+    title: Phase eps=0.10 sep=0.0 m=800
+    epsilon: 0.10
+    calibration_size: 800
+    dirty_loc: 0.0
+    separation_strength: 0.0
+    phase_region: no_separation
+  - config_id: phase_eps010_sep025_m800
+    title: Phase eps=0.10 sep=0.25 m=800
+    epsilon: 0.10
+    calibration_size: 800
+    dirty_loc: 0.25
+    separation_strength: 0.25
+    phase_region: no_separation
+  - config_id: phase_eps010_sep050_m800
+    title: Phase eps=0.10 sep=0.5 m=800
+    epsilon: 0.10
+    calibration_size: 800
+    dirty_loc: 0.5
+    separation_strength: 0.5
+    phase_region: no_separation
+  - config_id: phase_eps010_sep100_m800
+    title: Phase eps=0.10 sep=1.0 m=800
+    epsilon: 0.10
+    calibration_size: 800
+    dirty_loc: 1.0
+    separation_strength: 1.0
+    phase_region: transition
+  - config_id: phase_eps010_sep200_m800
+    title: Phase eps=0.10 sep=2.0 m=800
+    epsilon: 0.10
+    calibration_size: 800
+    dirty_loc: 2.0
+    separation_strength: 2.0
+    phase_region: transition
+  - config_id: phase_eps010_sep400_m800
+    title: Phase eps=0.10 sep=4.0 m=800
+    epsilon: 0.10
+    calibration_size: 800
+    dirty_loc: 4.0
+    separation_strength: 4.0
+    phase_region: near_ideal
+  - config_id: phase_eps010_sep800_m800
+    title: Phase eps=0.10 sep=8.0 m=800
+    epsilon: 0.10
+    calibration_size: 800
+    dirty_loc: 8.0
+    separation_strength: 8.0
+    phase_region: near_ideal
+  - config_id: phase_eps020_sep000_m800
+    title: Phase eps=0.20 sep=0.0 m=800
+    epsilon: 0.20
+    calibration_size: 800
+    dirty_loc: 0.0
+    separation_strength: 0.0
+    phase_region: no_separation
+  - config_id: phase_eps020_sep025_m800
+    title: Phase eps=0.20 sep=0.25 m=800
+    epsilon: 0.20
+    calibration_size: 800
+    dirty_loc: 0.25
+    separation_strength: 0.25
+    phase_region: no_separation
+  - config_id: phase_eps020_sep050_m800
+    title: Phase eps=0.20 sep=0.5 m=800
+    epsilon: 0.20
+    calibration_size: 800
+    dirty_loc: 0.5
+    separation_strength: 0.5
+    phase_region: no_separation
+  - config_id: phase_eps020_sep100_m800
+    title: Phase eps=0.20 sep=1.0 m=800
+    epsilon: 0.20
+    calibration_size: 800
+    dirty_loc: 1.0
+    separation_strength: 1.0
+    phase_region: transition
+  - config_id: phase_eps020_sep200_m800
+    title: Phase eps=0.20 sep=2.0 m=800
+    epsilon: 0.20
+    calibration_size: 800
+    dirty_loc: 2.0
+    separation_strength: 2.0
+    phase_region: transition
+  - config_id: phase_eps020_sep400_m800
+    title: Phase eps=0.20 sep=4.0 m=800
+    epsilon: 0.20
+    calibration_size: 800
+    dirty_loc: 4.0
+    separation_strength: 4.0
+    phase_region: near_ideal
+  - config_id: phase_eps020_sep800_m800
+    title: Phase eps=0.20 sep=8.0 m=800
+    epsilon: 0.20
+    calibration_size: 800
+    dirty_loc: 8.0
+    separation_strength: 8.0
+    phase_region: near_ideal
+  - config_id: phase_eps030_sep000_m800
+    title: Phase eps=0.30 sep=0.0 m=800
+    epsilon: 0.30
+    calibration_size: 800
+    dirty_loc: 0.0
+    separation_strength: 0.0
+    phase_region: no_separation
+  - config_id: phase_eps030_sep025_m800
+    title: Phase eps=0.30 sep=0.25 m=800
+    epsilon: 0.30
+    calibration_size: 800
+    dirty_loc: 0.25
+    separation_strength: 0.25
+    phase_region: no_separation
+  - config_id: phase_eps030_sep050_m800
+    title: Phase eps=0.30 sep=0.5 m=800
+    epsilon: 0.30
+    calibration_size: 800
+    dirty_loc: 0.5
+    separation_strength: 0.5
+    phase_region: no_separation
+  - config_id: phase_eps030_sep100_m800
+    title: Phase eps=0.30 sep=1.0 m=800
+    epsilon: 0.30
+    calibration_size: 800
+    dirty_loc: 1.0
+    separation_strength: 1.0
+    phase_region: transition
+  - config_id: phase_eps030_sep200_m800
+    title: Phase eps=0.30 sep=2.0 m=800
+    epsilon: 0.30
+    calibration_size: 800
+    dirty_loc: 2.0
+    separation_strength: 2.0
+    phase_region: transition
+  - config_id: phase_eps030_sep400_m800
+    title: Phase eps=0.30 sep=4.0 m=800
+    epsilon: 0.30
+    calibration_size: 800
+    dirty_loc: 4.0
+    separation_strength: 4.0
+    phase_region: near_ideal
+  - config_id: phase_eps030_sep800_m800
+    title: Phase eps=0.30 sep=8.0 m=800
+    epsilon: 0.30
+    calibration_size: 800
+    dirty_loc: 8.0
+    separation_strength: 8.0
+    phase_region: near_ideal

@@ -1,0 +1,77 @@
+group_id: group_s_explicit_bound_stability
+title: Explicit-bound stability analysis
+description: Surface numerical and informational failure modes of the semi and fully explicit Stein bounds.
+figure_kind: explicit_stability
+theory_refs:
+  - cor:ksd-explicit-clean-coverage
+  - cor:ksd-explicit-clean-coverage-fully-explicit
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 900
+  calibration_size: 320
+  threshold_policy: fixed_grid
+  mc_reps: 100
+  random_seed: 2026042002
+  dgp_family: gaussian_homoscedastic
+  contamination_family: partial_separation
+  predictor_type: linear
+  clean_test_size: 1600
+  mixture_test_size: 1600
+  structure_sample_size: 1200
+  threshold_quantiles: [0.70, 0.80, 0.90, 0.95, 0.975]
+  methods: [stein_trimmed]
+  compute_population_metrics: true
+  dirty_loc: 4.0
+  dirty_scale: 0.8
+  score_model_mode: well_specified
+  notes: Population Stein scores and bridge envelopes are numerically approximated using finite clean samples and finite evaluation grids; failure diagnostics are reported explicitly.
+experiments:
+  - config_id: explicit_r048_pop600_grid064_bw080
+    title: Explicit stability r=48 pop=600 grid=64 bw=0.8
+    clean_reference_size: 48
+    population_sample_size: 600
+    evaluation_grid_size: 64
+    bandwidth_scale: 0.8
+  - config_id: explicit_r048_pop600_grid064_bw160
+    title: Explicit stability r=48 pop=600 grid=64 bw=1.6
+    clean_reference_size: 48
+    population_sample_size: 600
+    evaluation_grid_size: 64
+    bandwidth_scale: 1.6
+  - config_id: explicit_r048_pop1800_grid160_bw080
+    title: Explicit stability r=48 pop=1800 grid=160 bw=0.8
+    clean_reference_size: 48
+    population_sample_size: 1800
+    evaluation_grid_size: 160
+    bandwidth_scale: 0.8
+  - config_id: explicit_r048_pop1800_grid160_bw160
+    title: Explicit stability r=48 pop=1800 grid=160 bw=1.6
+    clean_reference_size: 48
+    population_sample_size: 1800
+    evaluation_grid_size: 160
+    bandwidth_scale: 1.6
+  - config_id: explicit_r160_pop600_grid064_bw080
+    title: Explicit stability r=160 pop=600 grid=64 bw=0.8
+    clean_reference_size: 160
+    population_sample_size: 600
+    evaluation_grid_size: 64
+    bandwidth_scale: 0.8
+  - config_id: explicit_r160_pop600_grid064_bw160
+    title: Explicit stability r=160 pop=600 grid=64 bw=1.6
+    clean_reference_size: 160
+    population_sample_size: 600
+    evaluation_grid_size: 64
+    bandwidth_scale: 1.6
+  - config_id: explicit_r160_pop1800_grid160_bw080
+    title: Explicit stability r=160 pop=1800 grid=160 bw=0.8
+    clean_reference_size: 160
+    population_sample_size: 1800
+    evaluation_grid_size: 160
+    bandwidth_scale: 0.8
+  - config_id: explicit_r160_pop1800_grid160_bw160
+    title: Explicit stability r=160 pop=1800 grid=160 bw=1.6
+    clean_reference_size: 160
+    population_sample_size: 1800
+    evaluation_grid_size: 160
+    bandwidth_scale: 1.6

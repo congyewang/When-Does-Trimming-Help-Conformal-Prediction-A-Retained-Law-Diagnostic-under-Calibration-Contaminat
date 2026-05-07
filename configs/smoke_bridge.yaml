@@ -1,0 +1,26 @@
+group_id: smoke_bridge
+title: Smoke bridge
+description: Tiny bridge run for smoke testing.
+figure_kind: bridge
+theory_refs:
+  - prop:stein-score-bridge
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 220
+  calibration_size: 70
+  clean_reference_size: 48
+  threshold_policy: clean_reference_only
+  mc_reps: 3
+  random_seed: 2026041702
+  dgp_family: tradeoff
+  contamination_family: separated_covariate
+  predictor_type: linear
+  clean_test_size: 200
+  mixture_test_size: 200
+  structure_sample_size: 240
+  threshold_quantiles: [0.95]
+  methods: [stein_trimmed]
+  compute_population_metrics: true
+experiments:
+  - config_id: smoke_bridge_cfg

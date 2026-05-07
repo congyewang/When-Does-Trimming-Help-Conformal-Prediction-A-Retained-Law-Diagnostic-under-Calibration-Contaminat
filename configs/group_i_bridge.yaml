@@ -1,0 +1,34 @@
+group_id: group_i_bridge
+title: Population-to-empirical bridge
+description: Uniform score approximation and shifted-tail retention brackets.
+figure_kind: bridge
+theory_refs:
+  - prop:stein-score-bridge
+  - prop:stein-witness-uniform-hp
+  - cor:stein-witness-uniform-bridge
+defaults:
+  alpha: 0.1
+  epsilon: 0.2
+  train_size: 1000
+  calibration_size: 260
+  threshold_policy: clean_reference_only
+  mc_reps: 100
+  random_seed: 2026041609
+  dgp_family: tradeoff
+  contamination_family: separated_covariate
+  predictor_type: linear
+  clean_test_size: 1600
+  mixture_test_size: 1600
+  structure_sample_size: 1400
+  threshold_quantiles: [0.95]
+  methods: [stein_trimmed]
+  compute_population_metrics: true
+experiments:
+  - config_id: bridge_ref_64
+    clean_reference_size: 64
+  - config_id: bridge_ref_128
+    clean_reference_size: 128
+  - config_id: bridge_ref_256
+    clean_reference_size: 256
+  - config_id: bridge_ref_512
+    clean_reference_size: 512
